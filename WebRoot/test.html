@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+		<script type="text/javascript" src="js/bootstrap.min.js"></script>
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<link rel="stylesheet" href="css/shouye.css" />
+	</head>
+	<!--购物车-->
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$("#t1").click(function() {
+				console.log("調到購物車");
+			});
+		});
+	</script> 
+
+	<!--填写跳转函数-->
+
+	<!--点击改变登入框透明度-->
+	<script>
+		var flag1 = false;
+		var flag2 = false;
+		$(document).ready(function() {
+			$("#loginbutton").click(function() {
+				console.log("flag1:"+flag1);
+				if(flag1 == false) {
+					$("#22").css("opacity", "255");
+					$("#33").css("opacity","0");
+					flag1 = true;
+			
+					flag2=false;
+				} else {
+					$("#22").css("opacity", "0");
+					flag1 = false;
+					flag2=true;
+				}
+			})
+		});
+		$(document).ready(function() {
+			$("#signinbutton").click(function() {
+				console.log("flag2:"+flag2);
+				if(flag2 == false) {
+					$("#33").css("opacity", "255");
+					flag2 = true;
+					$("#22").css("opacity","0");
+					flag1=false;
+				} else {
+					$("#33").css("opacity", "0");
+					flag2 = false;
+					flag1= true;
+				}
+			})
+		});
+	</script>
+
+	<!--跳转到商城函数-->
+	<script>
+		function linktoStore() {
+			window.location.href="store.html";
+		}
+	</script>
+
+	<!--弹出登入界面-->
+	<script>
+		function login() {
+			console.log("登入");
+		}
+	</script>
+
+	<!--弹出注册界面-->
+	<script>
+		function signin() {
+			console.log("注册");
+		}
+	</script>
+	<script>
+		var flag =false;
+		$(document).ready(function() {
+		$("#personal").click(function() {
+			console.log("登入");
+			if (flag == false) {
+				$("#picture3").css("opacity", "255");
+				flag = true;
+			} else {
+				$("#picture3").css("opacity", "0");
+				flag = false;
+			}
+		})
+		$("#shop").click(function(){
+			window.location.href = "shoppage.html";
+		})
+		$("#bt").click(function(){
+			console.log(1);
+			$("#picture3").css("opacity", "0");
+		})
+	});
+		
+	</script>
+
+	<body>
+		<div style="position: absolute;top: 0px;left: 0px;">
+			<img src="img/shouye1.png" style="z-index: 0;"></img>
+			<div style="position: absolute;top: 2240px;left: 369px;">
+				<p>
+					<video width="1180px" height="420px" controls>
+						<source src="video/52502173_1_0.mp4" type="video/mp4">
+						<!-- <source src="movie.ogg" type="video/ogg"> -->
+						您的浏览器不支持Video标签。
+					</video>
+				</p>
+			</div>
+
+			<!--
+        	作者：offline
+        	时间：2019-07-24
+        	描述：第一個輪播
+        -->
+			<div style="position: absolute;top:99px;width: 1920px;height:700px ;">
+				<!-- 个人中心按钮 -->
+				<button style="position: absolute;top:-40px;left: 1540px;width: 15px;height: 16px;opacity: 0;z-index: 3;" id="personal"></button>
+				<!-- 显示个人中心div块 -->
+				<div>
+					<img id="picture3" src="img/personal1.jpg" style="position: absolute;left: 1306px;top: 0px;opacity:0;z-index: 3;">
+					<button type="button" style="position: absolute;top:199px;left:1403px; width: 55px;height: 14px;opacity: 0;z-index: 3;" id="bt"></button>
+				</div>
+				<!-- 购物车未登录状态下按钮 -->
+				<button style="position: absolute;top:-40px;left: 1503px;width: 16px;height: 16px;opacity: 0;z-index: 3" id="shop"></button>
+				<div id="myCarousel1" class="carousel slide">
+					<!-- 轮播（Carousel）指标 -->
+					<ol class="carousel-indicators">
+						<li data-target="#myCarousel1" data-slide-to="0" class="active"></li>
+						<li data-target="#myCarousel1" data-slide-to="1"></li>
+					</ol>
+					<!-- 轮播（Carousel）项目 -->
+					<div class="carousel-inner">
+						<div class="item active">
+							<img src="img/banner1.jpg" alt="First slide">
+						</div>
+						<div class="item">
+							<img src="img/banner2.png" alt="Second slide">
+						</div>
+					</div>
+					<!-- 轮播（Carousel）导航 -->
+					<a class="carousel-control left" href="#myCarousel1" data-slide="prev">&lsaquo;</a>
+					<a class="carousel-control right" href="#myCarousel1" data-slide="next">&rsaquo;</a>
+
+				</div>
+			</div>
+
+			<!--配件輪播部分-->
+			<div style="position: absolute; top:825px;width: 1920px;height: 325px;">
+				<div id="myCarousel2" class="carousel slide">
+					<!-- 轮播（Carousel）指标 -->
+					<ol class="carousel-indicators">
+						<li data-target="#myCarousel2" data-slide-to="0" class="active"></li>
+						<li data-target="#myCarousel2" data-slide-to="1"></li>
+						<li data-target="#myCarousel2" data-slide-to="2"></li>
+					</ol>
+					<!-- 轮播（Carousel）项目 -->
+					<div class="carousel-inner">
+						<div class="item active">
+							<img src="img/lunbo2.jpg" alt="First slide">
+						</div>
+						<div class="item">
+							<img src="img/lunbo3.jpg" alt="Second slide">
+						</div>
+						<div class="item">
+							<img src="img/lunbo1.jpg" alt="Third slide">
+						</div>
+					</div>
+					<!-- 轮播（Carousel）导航 -->
+					<a class="carousel-control left" href="#myCarousel2" data-slide="prev">&lsaquo;</a>
+					<a class="carousel-control right" href="#myCarousel2" data-slide="next">&rsaquo;</a>
+
+				</div>
+
+			</div>
+
+			<!--登入模块-->
+			<div id="22" style="opacity: 0;"><img src="img/login_bac.png" class="x"></img>
+				<input type="text" class="nametext" placeholder="  手机/邮箱/用户名" />
+				<input type="password" class="pwdtext" placeholder="  密码" />
+				<input class="btn btn-default" value="确认" style="z-index: 2;position: absolute;left: 1204px;top: 317px;width: 313px;height: 40px;background-color: #eb0028;font-family: SourceHanSansCN-Normal;font-size: 16px;font-weight:bold;font-stretch: normal;color: #ffffff;" />
+			</div>
+
+			<!--注册模块-->
+			<div id="33" style="opacity: 0;">
+				<img src="img/zhuce.png" style="position: absolute;left: 1168px;top: 99px;width: 393px;height: 531px;"></img>
+				<input type="text" style="z-index: 2;width: 313px;height: 40px;position: absolute;left: 1206px;top: 187px;"
+				 placeholder="  手机/邮箱/用户名" />
+				<input type="password" class="pwdtext1" placeholder="  密码" />
+				<input class="btn btn-default" value="创建账户" style="z-index: 2;position: absolute;left: 1206px;top: 376px;width: 313px;height: 40px;background-color: #eb0028;font-family: SourceHanSansCN-Normal;font-size: 16px;font-weight:bold;font-stretch: normal;color: #ffffff;" />
+				<button style="position: absolute;top: 440px;left:1345px;width: 36px;height: 17px; opacity: 100;z-index: 2;" id="checklogin"></button>
+			</div>
+
+			<label style="position: absolute;left: 850px;top:54px;width: 32px;height: 16px;font-family: PingFang-SC-Regular;font-size: 16px;font-weight: normal;font-stretch: normal;color: #333333;opacity: 0;"
+			 onclick="linktoStore()">商城</label>
+			<label style="position: absolute;left: 1490px;top:5px;width: 72px;height: 12px;font-family: PingFang-SC-Regular;font-size: 13px;font-weight: normal;font-stretch: normal;color: #333333;opacity: 0;"
+			 id="loginbutton">登入</label>
+			<label style="position: absolute;left: 1535px;top:5px;width: 32px;height: 12px;font-family: PingFang-SC-Regular;font-size: 13px;font-weight: normal;font-stretch: normal;color: #333333;opacity: 0;"
+			 id="signinbutton">注册</label>
+			<button style="position: absolute;left: 1520px;top:57px;width: 16	px;height: 16px;opacity: 0;" id="t1"></button>
+
+
+		</div>
+	</body>
+
+</html>

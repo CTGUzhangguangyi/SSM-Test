@@ -1,0 +1,83 @@
+
+/*主页样式*/
+img.m{
+	position: absolute;
+	width: 1920px;
+	height: 4054px;
+	z-index: 0;
+}
+
+/*登入界面样式*/
+img.x{
+	position: absolute;
+	left: 1166px;
+	top: 99px;
+	z-index: 1;
+}
+
+/*//用户输入框*/
+input.nametext{
+	
+	position: absolute;
+	left: 1204px;
+	top:185px;
+	width: 313px;
+	height: 40px;
+	background-color: #ffffff;
+	border-radius: 2px;
+	border: solid 1px #8f8f8f;
+	z-index: 2;
+}
+
+/*密码框*/
+input.pwdtext{
+	
+	position: absolute;
+	left: 1204px;
+	top:250px;
+	width: 313px;
+	height: 40px;
+	background-color: #ffffff;
+	border-radius: 2px;
+	border: solid 1px #aaaaaa;
+	z-index: 2;
+}
+input.pwdtext1{
+	
+	position: absolute;
+	left: 1206px;
+	top:252px;
+	width: 313px;
+	height: 40px;
+	background-color: #ffffff;
+	border-radius: 2px;
+	border: solid 1px #aaaaaa;
+	z-index: 2;
+}
+/*确认框*/
+input.ess{
+	
+	font-family: SourceHanSansCN-Normal;
+	font-size: 16px;
+	font-weight:bold;
+	font-stretch: normal;
+	color: #ffffff;
+	position: absolute;
+	left: 1204px;
+	top:317px;
+	width: 313px;
+	height: 40px;
+	background-color: #eb0028;
+	border-radius: 2px;
+	z-index: 2;
+}
+
+
+/*轮播图样式*/
+#cssr{
+	position: absolute;
+	top:823px;
+	width: 1920px;
+	height: 346px;
+	z-index: 1;
+}

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chinasoft.dao.ShoppingMapper">
+<resultMap type="com.chinasoft.pojo.Shoppingcart" id="shopMap">
+		<id column="sid" property="sid" />
+		<result column="pnumber" property="pnumber" />
+		<association property="u" column="uid" javaType="com.chinasoft.pojo.Users" select="com.chinasoft.dao.UsersMapper.getUserById"/>
+		<association property="p" column="pid" javaType="com.chinasoft.pojo.Product" select="com.chinasoft.dao.ProductMapper.getAProductByPid"/>
+	</resultMap>
+
+	<sql id="s1">
+		select * from Shoppingcart
+	</sql>
+
+	<select id="" resultType="com.chinasoft.pojo.Shoppingcart">
+		<include refid="s1"/>
+	</select>
+	
+	<insert id="insertIntoShopping"  parameterType="int" >
+		insert into Shoppingcart (uid,pnumber,pid) values (#{uid},#{pnumber},#{pid})
+	</insert>
+	<select id="selectFromShoppingByuidAndpid" parameterType="int" resultType="java.lang.String">
+		select  pnumber  from Shoppingcart where uid=#{uid} and pid=#{pid}
+	</select>
+	<update id="updateShoppingPNumberByuidAndpid" parameterType="int" >
+		update Shoppingcart set pnumber=pnumber+1 where uid=#{uid} and pid=#{pid}
+	</update>
+	<select id="selectFromShoppingByuidToCountpid" parameterType="int" resultType="java.lang.String">
+		SELECT COUNT(pid) from Shoppingcart where uid=#{uid}
+	</select>
+	
+	<select id="getProductByUid" parameterType="int" resultMap="shopMap">
+		select *from Shoppingcart where uid=#{uid}
+	</select>
+	<update id="updateNumberByUidAndPid" parameterType="int" >
+	  update Shoppingcart set pnumber=pnumber+#{offset} where uid=#{uid} and pid=#{pid}
+	</update>
+	<delete id="deleteByUidAndPid" parameterType="int">
+	delete from Shoppingcart where uid=#{uid} and pid=#{pid}
+	</delete>
+	
+</mapper>

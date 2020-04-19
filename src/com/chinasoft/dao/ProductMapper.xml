@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chinasoft.dao.ProductMapper">
+<resultMap type="com.chinasoft.pojo.Product" id="pMap">
+		<id column="pid" property="pid" />
+		<result column="pname" property="pname" />
+		<result column="price" property="price" />
+		<result column="pnumber" property="pnumber" />
+		<result column="pimg" property="pimg" />
+		<result column="ptime" property="ptime" />
+		<result column="pstatus" property="pstatus" />
+		<result column="pcolor" property="pcolor" />
+		<result column="ptype" property="ptype" />
+		<collection property="clist" column="cid" ofType="com.chinasoft.pojo.Comment" select="com.chinasoft.dao.CommentMapper.getCommentsByUid"/>
+	</resultMap>
+	<sql id="s1">
+		select * from Product
+	</sql>
+	<select id="showAllProduct" resultType="com.chinasoft.pojo.Product">
+		<include refid="s1"/>
+	</select>
+    <delete id="deleteByPid" parameterType="int" >
+    delete from Product where pid=#{pid}
+    </delete>
+    
+    <select id="selectByPtype" parameterType="java.lang.String" resultType="int">
+		 select pid from Product where ptype=#{ptype}
+	</select>
+		
+		<select id="getProductByPid" parameterType="int" resultMap="pMap">
+		select * from Product where pid=#{pid}
+	</select>
+		<select id="getAProductByPid" parameterType="int" resultMap="pMap">
+		<include refid="s1"/> where pid=#{pid}
+	</select>
+	
+</mapper>

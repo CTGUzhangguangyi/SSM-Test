@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chinasoft.dao.CommentMapper">
+
+
+	<sql id="s1">
+		select * from Comment
+	</sql>
+	<select id="getCommentsByUid" parameterType="int" resultType="com.chinasoft.pojo.Comment">
+		<include refid="s1"/>
+		where uid=#{uid}
+	</select>
+	<select id="getCommentsByPid" parameterType="int" resultType="com.chinasoft.pojo.Comment">
+		<include refid="s1"/>
+		where uid=#{pid}
+	</select>
+	<insert id="insertComment">
+	insert into Comment(uid,pid,content,star) values(#{uid},#{pid},#{context},#{star})
+	</insert>
+
+</mapper>
